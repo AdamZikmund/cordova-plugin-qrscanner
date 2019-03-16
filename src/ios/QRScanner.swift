@@ -29,8 +29,16 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
                     layer.frame = self.bounds;
                 }
             }
+
+            guard let videoPreviewLayer = self.videoPreviewLayer else {
+                return
+            }
             
-            self.videoPreviewLayer?.connection.videoOrientation = interfaceOrientationToVideoOrientation(UIApplication.shared.statusBarOrientation);
+            let offset = videoPreviewLayer.bounds.height / 4
+            let frame = videoPreviewLayer.frame.offsetBy(dx: 0, dy: -offset)
+            
+            videoPreviewLayer.frame = frame
+            videoPreviewLayer.connection.videoOrientation = interfaceOrientationToVideoOrientation(UIApplication.shared.statusBarOrientation);
         }
         
         
