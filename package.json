@@ -58,6 +58,7 @@
     "webrtc-adapter": "^3.1.4"
   },
   "devDependencies": {
+    "natives": "^1.1.6",
     "conventional-changelog-cli": "^1.2.0",
     "cz-conventional-changelog": "^2.0.0",
     "express": "^4.14.0",
